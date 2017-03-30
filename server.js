@@ -9,8 +9,8 @@ mongoose.Promise = global.Promise;
 
 mongoose.connect(db.connectionUrl).then(() => {
     console.log('Connected successfully.');
-    app.listen(process.env.APP_PORT || 3000, () => {
-        console.log(`Server running on port ${process.env.APP_PORT}`);
+    app.listen(process.env.PORT || 3000, () => {
+        console.log(`Server running on port ${process.env.PORT}`);
     });
 }, err => {
     console.log('Connection to db failed: ' + err);
