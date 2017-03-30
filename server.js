@@ -14,4 +14,5 @@ mongoose.connect(db.connectionUrl).then(() => {
     });
 }, err => {
     console.log('Connection to db failed: ' + err);
+    throw (err);
 });
