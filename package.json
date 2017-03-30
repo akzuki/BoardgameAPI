@@ -1,0 +1,25 @@
+{
+  "name": "boardgames-api",
+  "version": "0.0.1",
+  "description": "Boardgames API",
+  "main": "./bin/www",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node -r dotenv/config ./bin/www"
+  },
+  "author": "Hai Phan",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.17.1",
+    "debug": "^2.6.3",
+    "express": "^4.15.2",
+    "mongoose": "^4.9.2",
+    "morgan": "^1.8.1",
+    "serve-favicon": "^2.4.2",
+    "supervisor": "^0.12.0"
+  },
+  "devDependencies": {
+    "eslint": "^3.18.0",
+    "eslint-config-google": "^0.7.1"
+  }
+}
