@@ -1,5 +1,5 @@
 const User = require('../models/user.model');
-const responseHandler = require('../helpers/responseHandler');
+const responseHandler = require('../../helpers/responseHandler');
 
 function createUser(req, res, next) {
     const user = new User({

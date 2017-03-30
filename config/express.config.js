@@ -1,37 +1,26 @@
 const express = require('express');
-const favicon = require('serve-favicon');
-const mongoose = require('mongoose');
 const logger = require('morgan');
-const dbConfig = require('./config/db');
-const bodyParser = require('body-parser')
-mongoose.Promise = global.Promise;
+const bodyParser = require('body-parser');
 
-//Routes
-const index = require('./routes/index');
-const user = require('./routes/user');
+const index = require('../api/routes/index.route');
 
 const app = express();
 
-console.log(dbConfig.connectionUrl);
-
-mongoose.connect(dbConfig.connectionUrl).then(() => {
-    console.log('Connected successfully.');
-}, err => {
-    console.log('Connection to db failed: ' + err);
-});
-
+// if (config.env === 'development') {
+//
+// }
 app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({
-    extended: false
+    extended: true
 }));
-app.use('/user', user);
-app.use('/', index);
+
+app.use('/api/v1', index);
 
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
-    var err = new Error('Not Found');
+    let err = new Error('Not Found');
     err.status = 404;
     next(err);
 });

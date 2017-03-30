@@ -6,6 +6,7 @@ module.exports = {
     "rules": {
         "require-jsdoc": "warn",
         "comma-dangle": "off",
-        "max-len": "warn"
+        "max-len": "warn",
+        "new-cap": "off"
     }
 };
