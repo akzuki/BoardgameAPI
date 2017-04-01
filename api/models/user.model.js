@@ -42,7 +42,12 @@ UserSchema.pre('save', function(next) {
 
 UserSchema.methods = {
     validatePassword(password) {
-        return bcrypt.compare(password, this.password);
+        return new Promise(function(resolve, reject) {
+            bcrypt.compare(password, this.password, function(err, isMatch) {
+                return err ? reject(err) : resolve(isMatch);
+            });
+        });
+        // return bcrypt.compare(password, this.password);
     }
 };
 
