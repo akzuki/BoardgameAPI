@@ -7,12 +7,12 @@ const debug = require('debug')('boardgames-api:server');
 
 mongoose.Promise = global.Promise;
 
-mongoose.connect(db.connectionUrl).then(() => {
-    console.log('Connected successfully.');
-    app.listen(process.env.PORT || 3000, () => {
-        console.log(`Server running on port ${process.env.PORT}`);
+mongoose.connect(db.connectionUrl)
+    .then(() => {
+        console.log('Connected successfully.');
+        const listener = app.listen(process.env.PORT || 3000, () => {
+            console.log(`Server running on port ${listener.address().port}`);
+        });
+    }).catch(err => {
+        console.log('Cannot connect to database ', err);
     });
-}, err => {
-    console.log('Connection to db failed: ' + err);
-    throw (err);
-});
