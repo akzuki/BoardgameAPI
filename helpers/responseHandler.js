@@ -1,3 +1,5 @@
+'use strict';
+
 const successResponse = (data) => {
     return {
         'status': 200,
@@ -13,6 +15,6 @@ const failureResponse = (statusCode, description) => {
 };
 
 module.exports = {
-    successResponse: successResponse,
-    failureResponse: failureResponse
+    successResponse,
+    failureResponse
 };

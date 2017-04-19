@@ -1,7 +1,13 @@
+'use strict';
+
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
 const BoardgameSchema = new Schema({
+    photoUrl: {
+        type: String,
+        required: true
+    },
     title: {
         type: String,
         required: true
@@ -29,30 +35,32 @@ const BoardgameSchema = new Schema({
     ages: {
         type: String
     },
-    imagePath: {
-        type: String,
-        required: true
-    },
     price: {
         type: Number,
         required: true
     },
     store: {
         type: Schema.Types.ObjectId,
-        ref: 'Store'
+        ref: 'Store',
+        required: true
     },
     reviews: [{
         type: Schema.Types.ObjectId,
-        ref: 'Review'
-    }]
+        ref: 'Review',
+        default: []
+    }],
+    featured: {
+        type: Boolean,
+        default: false
+    }
 });
 
 BoardgameSchema.statics = {
     getAll() {
         return this.find();
     },
-    getById(id) {
-        return this.findById(id).exec();
+    create(boardgame) {
+        return boardgame.save();
     }
 };
 

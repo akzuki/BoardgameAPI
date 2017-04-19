@@ -3,28 +3,45 @@
 const express = require('express');
 const logger = require('morgan');
 const bodyParser = require('body-parser');
+const passport = require('passport');
+const validator = require('express-validator');
+const error = require('../helpers/api-error');
+
+const passportJWT = require('../api/middlewares/passport-jwt');
 
 const index = require('../api/routes/index.route');
 
 const app = express();
 
-// if (config.env === 'development') {
-//
-// }
+app.use(passport.initialize());
+
+passportJWT.useUserAuthenticationStragedy(passport);
+passportJWT.useStoreAuthenticationStragedy(passport);
+require('../api/middlewares/passport-facebook')(passport);
+
 app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({
     extended: true
 }));
+app.use(validator());
+app.use(express.static('public'));
+// app.use(express.static('photos/product'));
 
-app.use('/api/v1', index);
+app.use('/', index);
 
+app.use((err, req, res, next) => {
+    console.log(err);
+    if (!(err instanceof error.APIError)) {
+        const apiError = new error.APIError(err.message, err.status);
+        return next(apiError);
+    }
+    return next(err);
+});
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
-    let err = new Error('Not Found');
-    err.status = 404;
-    next(err);
+    next(error.notFoundError);
 });
 
 // error handler
@@ -33,10 +50,10 @@ app.use(function(err, req, res, next) {
     res.locals.message = err.message;
     res.locals.error = req.app.get('env') === 'development' ? err : {};
 
-    // render the error page
-    res.status(err.status || 500);
-    // res.render('error');
-    res.send(err);
+    res.status(err.status).json({
+        status: err.status,
+        description: err.message
+    });
 });
 
 module.exports = app;

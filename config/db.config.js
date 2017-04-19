@@ -1,3 +1,5 @@
+'use strict';
+
 const databaseName = 'boardgame';
 
 module.exports = {

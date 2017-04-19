@@ -1,15 +1,23 @@
 const express = require('express');
 const router = express.Router();
-const userRoute = require('./user.route');
+const passport = require('passport');
 
-router.route('/')
-    .get((req, res, next) => {
-        res.send('Whatcha doin?');
-    })
-    .post((req, res, next) => {
-        console.log(req.body);
-    });
+const authenticateUserRoute = require('./main/authenticateUser.route');
+const authenticateStoreRoute = require('./panel/authenticateStore.route');
 
-router.use('/user', userRoute);
+const panelRoute = require('./panel/index.route');
+const mainRoute = require('./main/index.route');
+// MARK: Main route
+
+
+router.use('/panel/auth', authenticateStoreRoute);
+router.use('/panel', passport.authenticate('storeAuthStragedy', {
+    session: false
+}), panelRoute);
+
+router.use('/api/auth', authenticateUserRoute);
+router.use('/api', passport.authenticate('useAuthStragedy', {
+    session: false
+}), mainRoute);
 
 module.exports = router;
