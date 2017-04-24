@@ -38,3 +38,9 @@ jspm_packages
 
 #Environment file
 .env
+.env.test
+
+#Certificate
+ssl-cert.pem
+ssl-key.pem
+certrequest.csr
