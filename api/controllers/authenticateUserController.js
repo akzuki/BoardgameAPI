@@ -16,11 +16,12 @@ const handleFacebookLogin = (req, res, next) => {
         'facebook.id': facebookId
     }).then((existingUser) => {
         if (existingUser) {
-            const payload = {
-                id: existingUser.id
-            };
-            const token = jwt.sign(payload, passportConfig.jwt.secret);
-            res.json(responseHandler.successResponse(token));
+            return existingUser;
+            // const payload = {
+            //     id: existingUser.id
+            // };
+            // const token = jwt.sign(payload, passportConfig.jwt.secret);
+            // res.json(responseHandler.successResponse(token));
         } else {
             const newUser = new User();
             newUser.facebook.id = facebookId;

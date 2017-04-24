@@ -3,6 +3,8 @@
 const express = require('express');
 const logger = require('morgan');
 const bodyParser = require('body-parser');
+const helmet = require('helmet');
+const cors = require('cors');
 const passport = require('passport');
 const validator = require('express-validator');
 const error = require('../helpers/api-error');
@@ -13,6 +15,8 @@ const index = require('../api/routes/index.route');
 
 const app = express();
 
+app.use(helmet());
+app.use(cors());
 app.use(passport.initialize());
 
 passportJWT.useUserAuthenticationStragedy(passport);
@@ -31,7 +35,7 @@ app.use(express.static('public'));
 app.use('/', index);
 
 app.use((err, req, res, next) => {
-    console.log(err);
+    // console.log(err);
     if (!(err instanceof error.APIError)) {
         const apiError = new error.APIError(err.message, err.status);
         return next(apiError);

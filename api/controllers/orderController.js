@@ -9,6 +9,17 @@ let stripe = require('stripe')('sk_test_4UqZmMNNtwgEGnks05AhNuTb');
 const error = require('../../helpers/api-error');
 
 const createOrder = (req, res, next) => {
+    // stripe.tokens.create({
+    //     card: {
+    //         'number': '4242424242424242',
+    //         'exp_month': 12,
+    //         'exp_year': 2018,
+    //         'cvc': '123'
+    //     }
+    // }, function(err, token) {
+    //     console.log(token);
+    //     // asynchronously called
+    // });
     const user = req.user;
     Boardgame.findById(req.body.boardgameId)
         .then((boardgame) => {
