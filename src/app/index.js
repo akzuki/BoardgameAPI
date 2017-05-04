@@ -5,6 +5,7 @@ import { Home } from './components/Home';
 import { ProductGridView } from './components/ProductGridView';
 import { ProductDetail } from './components/ProductDetail';
 import { Checkout } from './components/Checkout';
+import { UserLogin } from './components/UserLogin';
 
 class App extends React.Component {
     render() {
@@ -14,6 +15,7 @@ class App extends React.Component {
                    <IndexRoute component={ProductGridView} />
                    <Route path={"product/:id"} component={ProductDetail} />
                    <Route path={"checkout/:id"} component={Checkout} />
+                   <Route path={"login"} component={UserLogin} />
                </Route>
            </Router>
         );

@@ -1,7 +1,13 @@
 import React from 'react';
 import { Link } from 'react-router';
+import {Router, Route, browserHistory, IndexRoute} from 'react-router';
 
 export class Header extends React.Component {
+    logOut() {
+      localStorage.removeItem('userToken');
+      browserHistory.push('/');
+    }
+
     render() {
         const userToken =  localStorage.getItem('userToken');
         return (
@@ -19,7 +25,7 @@ export class Header extends React.Component {
                 <div className="collapse navbar-collapse" id="myNavbar">
                   <ul className="nav navbar-nav navbar-right">
                     <li><a href="#"><span className="glyphicon glyphicon-user"></span> My orders</a></li>
-                    <li><a href="#"><span className="glyphicon glyphicon-user"></span> Log out</a></li>
+                    <li onClick={this.logOut.bind(this)}><a href="#"><span className="glyphicon glyphicon-user"></span> Log out</a></li>
                   </ul>
                 </div>
               ) : (
