@@ -24,7 +24,7 @@ export class Header extends React.Component {
               {userToken ? (
                 <div className="collapse navbar-collapse" id="myNavbar">
                   <ul className="nav navbar-nav navbar-right">
-                    <li><a href="#"><span className="glyphicon glyphicon-user"></span> My orders</a></li>
+                    <li><a href="/order"><span className="glyphicon glyphicon-user"></span> My orders</a></li>
                     <li onClick={this.logOut.bind(this)}><a href="#"><span className="glyphicon glyphicon-user"></span> Log out</a></li>
                   </ul>
                 </div>

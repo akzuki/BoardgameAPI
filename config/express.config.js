@@ -31,8 +31,8 @@ app.use(bodyParser.urlencoded({
 }));
 app.use(validator());
 
-app.use('/', express.static(path.join(__dirname, 'public')));
-// app.use(express.static(__dirname + '/public'));
+// app.use('/', express.static(path.join(__dirname, 'public')));
+app.use(express.static('public'));
 
 app.use('/', index);
 
