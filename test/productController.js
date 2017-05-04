@@ -116,7 +116,7 @@ describe('Boardgame', () => {
                 };
                 const token = jwt.sign(payload, passportConfig.jwt.secret);
                 chai.request(server)
-                    .get(`/panel/product/`)
+                    .get('/panel/product/')
                     .set('Authorization', `JWT ${token}`)
                     .end((err, res) => {
                         res.should.have.status(200);

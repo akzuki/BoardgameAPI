@@ -16,8 +16,6 @@ router.use('/panel', passport.authenticate('storeAuthStragedy', {
 }), panelRoute);
 
 router.use('/api/auth', authenticateUserRoute);
-router.use('/api', passport.authenticate('useAuthStragedy', {
-    session: false
-}), mainRoute);
+router.use('/api', mainRoute);
 
 module.exports = router;

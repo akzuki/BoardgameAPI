@@ -1,0 +1,119 @@
+/* Remove the navbar's default rounded borders and increase the bottom margin */
+  body {
+    background-color: #0E0E0E;
+  }
+
+    .navbar {
+      margin-bottom: 0;
+      border-radius: 0;
+    }
+
+    /* Remove the jumbotron's default bottom margin */
+     .jumbotron {
+      margin-bottom: 0;
+    }
+
+    /* Add a gray background color and some padding to the footer */
+    footer {
+      background-color: #f2f2f2;
+      padding: 25px;
+    }
+
+    .carousel-inner img {
+      width: 100%; /* Set width to 100% */
+      margin: auto;
+      min-height:200px;
+    }
+
+    .product-container {
+      margin-top: 50px;
+    }
+
+    .thumbnail{
+      padding: 0;
+      border: 0;
+      border-radius: 0;
+      background-color: #727272;
+		opacity:0.70;
+		-webkit-transition: all 0.5s;
+		transition: all 0.5s;
+	}
+	.thumbnail:hover{
+		opacity:1.00;
+		box-shadow: 0px 0px 10px #BFBFBF;
+	}
+
+  .product-image {
+    width: 300px;
+    height: 300px !important;
+  }
+
+  .product-description {
+    line-height: 1.5em;
+    height: 3em;       /* height is 2x line-height, so two lines will display */
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  .thumbnail .caption {
+    color: white;
+  }
+
+  .carousel-image {
+    max-height: 70vh;
+  }
+
+  .carousel-content {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    left: 0px;
+  }
+
+  .carousel-title {
+    margin-top: 200px;
+    text-transform: uppercase;
+    border: 2px solid white;
+  }
+
+  .block-title {
+    text-align: center;
+    color: white;
+    text-transform: uppercase;
+    margin-top: 50px;
+  }
+
+  footer{
+	background-color:#222222;
+	min-height:100px;
+  margin-top: 50px;
+}
+
+footer .menu li a{
+	font-family:Roboto;
+	color:#b1aca1;
+	padding:10px;
+	text-decoration:none;
+}
+
+footer .menu li a:hover{
+	color:#7dabdb;
+}
+
+.fa.fa-facebook , .fa.fa-dropbox, .fa.fa-flickr , .fa.fa-github , .fa.fa-linkedin ,.fa,fa-tumblr ,.fa.fa-google-plus , .fa.fa-tumblr {
+	color:#b1aca1;
+	font-size:20px;
+	padding:10px;
+	margin-bottom:50px;
+}
+
+.fa.fa-facebook:hover , .fa.fa-dropbox:hover , .fa.fa-flickr:hover  , .fa.fa-github:hover  , .fa.fa-linkedin:hover  ,.fa,fa-tumblr:hover  ,.fa.fa-google-plus:hover  , .fa.fa-tumblr:hover  {
+	color:#6794c2;
+}
+
+  /* Hide the carousel text when the screen is less than 600 pixels wide */
+  @media (max-width: 600px) {
+    .carousel-caption {
+      display: none;
+    }
+  }

@@ -5,7 +5,9 @@
   "main": "server.js",
   "scripts": {
     "test": "mocha test -r dotenv/config dotenv_config_path=.env.test",
-    "start": "nodemon --exec 'node -r dotenv/config server.js'"
+    "start": "nodemon --exec 'node -r dotenv/config server.js'",
+    "build": "webpack -d && cp src/index.html public/index.html && cp src/css/style.css public/css/style.css && webpack-dev-server --content-base src/ --inline --hot --history-api-fallback",
+    "build:prod": "webpack -p && cp src/index.html public/index.html && cp src/css/style.css public/css/style.css"
   },
   "author": "Hai Phan",
   "license": "ISC",
@@ -26,16 +28,26 @@
     "passport": "^0.3.2",
     "passport-facebook": "^2.1.1",
     "passport-jwt": "^2.2.1",
+    "react": "^15.5.4",
+    "react-dom": "^15.5.4",
+    "react-router": "^3.0.0",
+    "react-router-dom": "^4.1.1",
     "request": "^2.81.0",
     "serve-favicon": "^2.4.2",
     "stripe": "^4.18.0"
   },
   "devDependencies": {
+    "babel-loader": "^7.0.0",
+    "babel-preset-es2015": "^6.24.1",
+    "babel-preset-react": "^6.24.1",
+    "babel-preset-stage-2": "^6.24.1",
     "chai": "^3.5.0",
     "chai-http": "^3.0.0",
     "chai-jwt": "^2.0.0",
     "eslint": "^3.18.0",
     "eslint-config-google": "^0.7.1",
-    "mocha": "^3.2.0"
+    "mocha": "^3.2.0",
+    "webpack": "^2.4.1",
+    "webpack-dev-server": "^2.4.5"
   }
 }

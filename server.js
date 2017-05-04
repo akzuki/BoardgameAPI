@@ -23,13 +23,13 @@ mongoose.connect(db.connectionUrl)
             console.log(`Server running on port ${listener.address().port}`);
         });
 
-        // http server
-        http.createServer((req, res) => {
-            res.writeHead(301, {
-                'Location': 'https://localhost:3000' + req.url
-            });
-            res.end();
-        }).listen(8080);
+        // // http server
+        // http.createServer((req, res) => {
+        //     res.writeHead(301, {
+        //         'Location': 'https://localhost:3000' + req.url
+        //     });
+        //     res.end();
+        // }).listen(8080);
     }).catch((err) => {
         console.log('Cannot connect to database ', err);
     });

@@ -10,7 +10,6 @@ const authenticateUserController = require('../../controllers/authenticateUserCo
 // Login and register for users
 router.post('/facebookLogin', validation.validateFacebookLoginParams, facebookValidation.validateFacebookAccessToken, authenticateUserController.handleFacebookLogin);
 
-// For testing purpose only
 router.get('/facebook', passport.authenticate('facebook', {
     session: false,
     scope: ['email']
