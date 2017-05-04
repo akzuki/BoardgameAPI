@@ -8,6 +8,7 @@ const cors = require('cors');
 const passport = require('passport');
 const validator = require('express-validator');
 const error = require('../helpers/api-error');
+const path = require('path');
 
 const passportJWT = require('../api/middlewares/passport-jwt');
 
@@ -30,13 +31,13 @@ app.use(bodyParser.urlencoded({
 }));
 app.use(validator());
 
-app.use(express.static('public'));
+app.use('/', express.static(path.join(__dirname, 'public')));
 // app.use(express.static(__dirname + '/public'));
 
 app.use('/', index);
 
 app.use((err, req, res, next) => {
-    // console.log(err);
+    console.log(err);
     if (!(err instanceof error.APIError)) {
         const apiError = new error.APIError(err.message, err.status);
         return next(apiError);

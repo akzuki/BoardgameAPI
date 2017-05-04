@@ -1,15 +1,18 @@
 import React from 'react';
+import {Router, Route, browserHistory, IndexRoute} from 'react-router';
 
 export class Checkout extends React.Component {
     constructor() {
         super();
+        Stripe.setPublishableKey('pk_test_Yo8pFLzrzkZgT7nI7NC0sMvp');
         this.state = {
           item: {},
           address: '',
           cardNumber: '',
           expMonth: '',
           expYear: '',
-          cvc: ''
+          cvc: '',
+          error: null
         };
         this.handleInputChange = this.handleInputChange.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
@@ -37,6 +40,44 @@ export class Checkout extends React.Component {
 
     handleSubmit(event) {
       event.preventDefault();
+      Stripe.card.createToken({
+        number: $('#card-number').val(),
+        cvc: $('#card-cvc').val(),
+        exp_month: $('#card-expiry-month').val(),
+        exp_year: $('#card-expiry-year').val()
+      }, this.stripeResponseHandler.bind(this));
+
+    }
+
+    stripeResponseHandler = (status, response) => {
+      if (response.error) {
+        this.setState({
+          error: 'Invalid params'
+        });
+      } else {
+        fetch('https://localhost:3000/api/order', {
+          method: 'POST',
+          body: JSON.stringify({
+            'boardgameId': this.state.item._id,
+            'shippingAddress': this.state.address,
+            'stripeToken': response.id
+          }),
+          mode: 'cors',
+          headers: new Headers({
+            'Content-Type': 'application/json',
+            'Authorization': 'JWT ' + localStorage.getItem('userToken')
+          })
+        }).then((resp) => resp.json())
+          .then((result) => {
+              if (result.status == 200) {
+                browserHistory.push('/order');
+              } else {
+                this.setState({
+                  error: 'Invalid params'
+                });
+              }
+          });
+      }
     }
 
     render() {
@@ -46,8 +87,8 @@ export class Checkout extends React.Component {
                 <div className="col-sm-6 col-md-4 col-md-offset-4 col-sm-offset-3">
                     <h1>Checkout</h1>
                     <h4>Your Total: {this.state.item.price}€</h4>
-                    <div id="charge-error" className="alert alert-danger">
-
+                    <div style={{display: this.state.error ? 'block' : 'none' }}id="charge-error" className="alert alert-danger">
+                        {this.state.error}
                     </div>
                     <form id="checkout-form" onSubmit={this.handleSubmit}>
                         <div className="row">
