@@ -1,0 +1,1 @@
+define({  "name": "boardgames-api",  "version": "0.0.1",  "description": "Documentation for BoardgameAPI endpoints",  "title": "BoardgameAPI",  "sampleUrl": false,  "defaultVersion": "0.0.0",  "apidoc": "0.3.0",  "generator": {    "name": "apidoc",    "time": "2017-05-08T10:34:38.427Z",    "url": "http://apidocjs.com",    "version": "0.17.5"  }});
