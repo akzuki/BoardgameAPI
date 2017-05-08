@@ -6,7 +6,7 @@ import {Router, Route, browserHistory, IndexRoute} from 'react-router';
 export class ProductDetail extends React.Component {
     constructor() {
         super();
-        this.state = { item: {} };
+        this.state = { item: {}, store: {} };
     }
 
     componentDidMount() {
@@ -15,7 +15,10 @@ export class ProductDetail extends React.Component {
             .then((resp) => resp.json())
             .then((result) => {
                 console.log(result.data);
-                this.setState({item:result.data});
+                this.setState({
+                  item:result.data,
+                  store: result.data.store
+                });
             });
 
     }
@@ -42,7 +45,7 @@ export class ProductDetail extends React.Component {
 
             				<div className="col-md-8">
             					<div className="product-title">{this.state.item.title}</div>
-            					<div className="product-desc">{this.state.item.description}</div>
+            					<div className="product-desc"><p className="product-description">{this.state.item.description}</p></div>
             					<hr/>
             					<div className="product-price">{this.state.item.price}€</div>
             					<div className="product-stock">In Stock</div>
@@ -72,6 +75,11 @@ export class ProductDetail extends React.Component {
             								<li>Player: {this.state.item.player}</li>
             								<li>Time: {this.state.item.time}</li>
             								<li>Ages: {this.state.item.ages}</li>
+                            <hr/>
+                            <h3>Store:</h3>
+            								<li>Store's name: {this.state.store.name}</li>
+                            <li>Store's address: {this.state.store.address}</li>
+                            <li>Store's email: {this.state.store.email}</li>
             							</section>
 
             						</div>

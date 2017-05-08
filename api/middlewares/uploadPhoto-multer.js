@@ -17,7 +17,7 @@ const getExtension = (file) => {
 
 const upload = multer({
     fileFilter: function(req, file, next) {
-        let filetypes = /jpeg|jpg/;
+        let filetypes = /jpeg|jpg|png/;
         let mimetype = filetypes.test(file.mimetype);
         let extname = filetypes.test(path.extname(file.originalname).toLowerCase());
 

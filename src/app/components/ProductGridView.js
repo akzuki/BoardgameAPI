@@ -21,7 +21,7 @@ export class ProductGridView extends React.Component {
     render() {
         return (
           <div>
-            <Carousel data={this.state.items}/>
+            <Carousel/>
             <div className="block-title">
                 <h2>New arrivals</h2>
                 <hr style={{"width": "200px"}}/>

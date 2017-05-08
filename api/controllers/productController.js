@@ -20,7 +20,6 @@ const createBoardgame = (req, res, next) => {
         'photoUrl': req.body.photoUrl,
         'title': req.body.title,
         'description': req.body.description,
-        'category': req.body.category,
         'player': req.body.player,
         'time': req.body.time,
         'ages': req.body.ages,

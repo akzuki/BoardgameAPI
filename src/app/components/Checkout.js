@@ -46,7 +46,6 @@ export class Checkout extends React.Component {
         exp_month: $('#card-expiry-month').val(),
         exp_year: $('#card-expiry-year').val()
       }, this.stripeResponseHandler.bind(this));
-
     }
 
     stripeResponseHandler = (status, response) => {

@@ -16,16 +16,6 @@ const BoardgameSchema = new Schema({
         type: String,
         required: true
     },
-    category: {
-        type: String,
-        enum: [
-            'Card Game',
-            'City Building',
-            'Educational',
-            'Racing',
-            'Adventures'
-        ]
-    },
     player: {
         type: String
     },

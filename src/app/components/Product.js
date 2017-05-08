@@ -10,7 +10,7 @@ export class Product extends React.Component {
             <div className="thumbnail">
               <img src={"https://localhost:3000/photos/product/" + this.props.photoUrl} className="img-responsive product-image" alt="Image"/>
               <div className="caption">
-                  <h4 className="pull-right">{this.props.price}€</h4>
+                  <span className="label label-success pull-right">{this.props.price}€</span>
                   <h4>{this.props.title}</h4>
                   <p className="product-description">{this.props.description}</p>
               </div>

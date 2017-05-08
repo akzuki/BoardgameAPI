@@ -63,7 +63,8 @@ const getOrdersByStoreId = (req, res, next) => {
             item: 1,
             buyer: 1,
             shippingAddress: 1,
-            timestamp: 1
+            timestamp: 1,
+            transactionId: 1
         })
         .populate('item', {
             store: 0,

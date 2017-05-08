@@ -2,22 +2,30 @@ import React from 'react';
 import { Link } from 'react-router';
 import {Router, Route, browserHistory, IndexRoute} from 'react-router';
 
-export class Header extends React.Component {
+export class StoreHeader extends React.Component {
     logOut() {
-      localStorage.removeItem('userToken');
-      browserHistory.push('/');
+      localStorage.removeItem('storeToken');
+      browserHistory.push('/panel');
     }
 
     onClickLogin() {
-      browserHistory.push('/login');
+      browserHistory.push('/panel/login');
     }
 
     onClickOrder() {
-      browserHistory.push('/order');
+      browserHistory.push('/panel/order');
+    }
+
+    onClickRegister() {
+      browserHistory.push('/panel/register');
+    }
+
+    onClickPanel() {
+      browserHistory.push('/panel');
     }
 
     render() {
-        const userToken =  localStorage.getItem('userToken');
+        const storeToken =  localStorage.getItem('storeToken');
         return (
           <nav className="navbar navbar-inverse">
             <div className="container-fluid">
@@ -27,12 +35,12 @@ export class Header extends React.Component {
                   <span className="icon-bar"></span>
                   <span className="icon-bar"></span>
                 </button>
-                <a className="navbar-brand" href="/">BoardgameStore</a>
+                <a onClick={this.onClickPanel.bind(this)} className="navbar-brand" href="#">BoardgameStore Panel</a>
               </div>
-              {userToken ? (
+              {storeToken ? (
                 <div className="collapse navbar-collapse" id="myNavbar">
                   <ul className="nav navbar-nav navbar-right">
-                    <li onClick={this.onClickOrder.bind(this)}><a href="#"> My orders</a></li>
+                    <li onClick={this.onClickOrder.bind(this)}><a href="#"> Orders</a></li>
                     <li onClick={this.logOut.bind(this)}><a href="#"> Log out</a></li>
                   </ul>
                 </div>
@@ -40,6 +48,7 @@ export class Header extends React.Component {
                 <div className="collapse navbar-collapse" id="myNavbar">
                   <ul className="nav navbar-nav navbar-right">
                     <li onClick={this.onClickLogin.bind(this)}><a href="#"><span className="glyphicon glyphicon-user"></span> Log in</a></li>
+                    <li onClick={this.onClickRegister.bind(this)}><a href="#"><span className="glyphicon glyphicon-user"></span> Register</a></li>
                   </ul>
                 </div>
               )}

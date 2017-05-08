@@ -33,7 +33,6 @@ describe('Boardgame', () => {
                         'photoUrl': '1492762998005-photo.jpg',
                         'title': 'Boardgame title',
                         'description': 'Boardgame description',
-                        'category': 'Card Game',
                         'player': '2-6',
                         'time': '2+ hours',
                         'ages': '1-5',
@@ -65,7 +64,6 @@ describe('Boardgame', () => {
                         'photoUrl': '1492762998005-photo.jpg',
                         'title': 'Boardgame title',
                         'description': 'Boardgame description',
-                        'category': 'Card Game',
                         'player': '2-6',
                         'time': '2+ hours',
                         'ages': '1-5',
@@ -128,7 +126,6 @@ describe('Boardgame', () => {
                         res.body.data[0].should.have.property('title').eql('Boardgame title');
                         res.body.data[0].should.have.property('description').eql('Boardgame description');
                         res.body.data[0].should.have.property('photoUrl').eql('1492762998005-photo.jpg');
-                        res.body.data[0].should.have.property('category').eql('Card Game');
                         res.body.data[0].should.have.property('player').eql('2-6');
                         res.body.data[0].should.have.property('time').eql('2+ hours');
                         res.body.data[0].should.have.property('ages').eql('1-5');
@@ -157,7 +154,6 @@ describe('Boardgame', () => {
                         res.body.data[0].should.have.property('title').eql('Boardgame title');
                         res.body.data[0].should.have.property('description').eql('Boardgame description');
                         res.body.data[0].should.have.property('photoUrl').eql('1492762998005-photo.jpg');
-                        res.body.data[0].should.have.property('category').eql('Card Game');
                         res.body.data[0].should.have.property('player').eql('2-6');
                         res.body.data[0].should.have.property('time').eql('2+ hours');
                         res.body.data[0].should.have.property('ages').eql('1-5');
@@ -190,7 +186,6 @@ describe('Boardgame', () => {
                         res.body.data.should.have.property('title').eql('Boardgame title');
                         res.body.data.should.have.property('description').eql('Boardgame description');
                         res.body.data.should.have.property('photoUrl').eql('1492762998005-photo.jpg');
-                        res.body.data.should.have.property('category').eql('Card Game');
                         res.body.data.should.have.property('player').eql('2-6');
                         res.body.data.should.have.property('time').eql('2+ hours');
                         res.body.data.should.have.property('ages').eql('1-5');

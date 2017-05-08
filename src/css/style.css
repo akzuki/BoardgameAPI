@@ -13,12 +13,6 @@
       margin-bottom: 0;
     }
 
-    /* Add a gray background color and some padding to the footer */
-    footer {
-      background-color: #f2f2f2;
-      padding: 25px;
-    }
-
     .carousel-inner img {
       width: 100%; /* Set width to 100% */
       margin: auto;
@@ -64,10 +58,10 @@
   }
 
   .carousel-content {
-    position: absolute;
-    height: 100%;
-    width: 100%;
-    left: 0px;
+    float: left;
+    top: 25%;
+    left: 50%;
+    transform: translate(-50%, -50%);
   }
 
   .carousel-title {
@@ -86,7 +80,6 @@
   footer{
 	background-color:#222222;
 	min-height:100px;
-  margin-top: 50px;
 }
 
 footer .menu li a{
@@ -239,4 +232,49 @@ footer .menu li a:hover{
 
 .service-image-left > center > img,.service-image-right > center > img{
 	max-height: 155px;
+}
+
+.collection {
+    border: 1px solid #2196F3;
+    border-bottom: none;
+    box-shadow: 0 2px 8px 0 rgba(0,0,0,0.16), 0 3px 10px 0 rgba(0,0,0,0.12);
+    margin-bottom: 20px;
+    margin-top: 50px;
+}
+
+.collection-item {
+    padding: 20px;
+    margin-right: 0 !important;
+    margin-left: 0 !important;
+    border-bottom: 1px solid #2196F3;
+    color: white;
+}
+.c-info__name {
+    font-size: 20px;
+    color:  #2196F3
+}
+.c-list__btn {
+    text-align: right;
+}
+.c-btn {
+    border-radius: 0px !important;
+    border: none !important;
+    color: white;
+    text-transform: uppercase;
+    box-shadow: 0 2px 5px 0 rgba(0,0,0,0.16), 0 2px 10px 0 rgba(0,0,0,0.12);
+}
+.c-btn__update {
+    background-color: #2196F3;
+}
+.c-btn__delete {
+    background-color: #EF5350;
+}
+.c-img {
+  height: 100px !important;
+  width: 130px !important;
+}
+@media screen and (max-width: 480px) {
+  .c-list__btn {
+    margin-top: 10px;
+  }
 }

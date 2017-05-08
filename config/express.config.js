@@ -37,7 +37,7 @@ app.use(express.static('public'));
 app.use('/', index);
 
 app.use((err, req, res, next) => {
-    console.log(err);
+    // console.log(err);
     if (!(err instanceof error.APIError)) {
         const apiError = new error.APIError(err.message, err.status);
         return next(apiError);

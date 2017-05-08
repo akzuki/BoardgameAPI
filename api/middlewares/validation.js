@@ -53,7 +53,6 @@ const validateCreateBoardgameParams = (req, res, next) => {
     req.checkBody('photoUrl', 'Invalid photo url').notEmpty();
     req.checkBody('title', 'Invalid title').notEmpty();
     req.checkBody('description', 'Invalid description').notEmpty();
-    req.checkBody('category', 'Invalid category').notEmpty();
     req.checkBody('player', 'Invalid player').notEmpty();
     req.checkBody('time', 'Invalid time').notEmpty();
     req.checkBody('ages', 'Invalid ages').notEmpty();
