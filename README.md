@@ -8,6 +8,17 @@ Welcome to BoardgameStore, your home for board games and card games
 - As a seller, you can add/manage your products
 - As a user, you can search for your favorite board games and buy them.
 
+## Features:
+- Authentication (Local, Facebook) via passport, jsonwebtoken
+- Hash password via Bcrypt
+- Payment via Stripe
+- Test via Mocha, Chai
+- Debugging via debug
+- Secure app via helmet
+- Code lint via ESLint
+- Validation via express-validator
+- CORS support via cors
+
 ## Getting Started
 
 Clone the repo:
@@ -37,6 +48,11 @@ npm run build
 
 #Build production
 npm run build:prod
+```
+
+See documentation:
+```sh
+Documentation inside docs folder
 ```
 
 
