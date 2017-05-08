@@ -5,8 +5,8 @@
 ## Overview
 
 Welcome to BoardgameStore, your home for board games and card games
-As a seller, you can add/manage your products
-As a user, you can search for your favorite board games and buy them.
+- As a seller, you can add/manage your products
+- As a user, you can search for your favorite board games and buy them.
 
 ## Getting Started
 
@@ -38,3 +38,7 @@ npm run build
 #Build production
 npm run build:prod
 ```
+
+
+## Testing
+![alt tag](https://github.com/akzuki/BoardgameAPI/blob/master/screenshots/Screen%20Shot%202017-05-08%20at%201.50.21%20PM.png)
